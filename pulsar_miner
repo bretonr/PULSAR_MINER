@@ -44,7 +44,7 @@ class Pulsar(object):
                 else:
                         self.F1 = 0
                 if hasattr(pulsar_parfile, 'F2'):
-                        self.F2	= pulsar_parfile.F2
+                        self.F2 = pulsar_parfile.F2
                 else:
                         self.F2 = 0
 
@@ -459,7 +459,7 @@ def fold_candidate(work_dir, LOG_basename, raw_datafile, dir_dedispersion, obs, 
                 cand_wmax = cand.filename.split("JERK_")[-1]
                 str_zmax_wmax = "z%s_w%s" % (cand_zmax, cand_wmax)
         else:
-                str_zmax_wmax =	"z%s" % (cand_zmax)
+                str_zmax_wmax = "z%s" % (cand_zmax)
         
         
         file_script_fold_name = "script_fold.txt"
@@ -812,7 +812,7 @@ def split_into_chunks(list_datfiles_to_split, LOG_basename,  work_dir, segment_m
 def check_if_DM_trial_was_searched(dat_file, list_zmax, jerksearch_zmax, jerksearch_wmax):
         dat_file_nameonly = os.path.basename(dat_file)
         fft_file = dat_file.replace(".dat", ".fft")
-	fft_file_nameonly = os.path.basename(fft_file)
+        fft_file_nameonly = os.path.basename(fft_file)
         
         if not os.path.exists(dat_file) or os.path.getsize(dat_file) == 0:
                 return False
@@ -1335,7 +1335,7 @@ def get_DD_scheme_from_DDplan_output(output_DDplan):
                                 print( "high_DM = ", high_DM )
                                 numDMs   =  int((highDM - lowDM) / dDM)
                                 print( "numDMs =", numDMs )
-				dict_scheme = {'loDM': lowDM, 'highDM': highDM, 'dDM': dDM, 'downsamp': downsamp, 'num_DMs': numDMs }
+                                dict_scheme = {'loDM': lowDM, 'highDM': highDM, 'dDM': dDM, 'downsamp': downsamp, 'num_DMs': numDMs }
                                 list_dict_schemes.append(dict_scheme)
                                         
                         else:
@@ -1923,7 +1923,7 @@ else:
                 if (sys.argv[j] == "-config"):
                         config_filename = sys.argv[j+1]
                 elif (sys.argv[j] == "-obs"):
-	                obsname = sys.argv[j+1]
+                        obsname = sys.argv[j+1]
                 elif (sys.argv[j] == "-init_default"):
                         try:    observation_filename = sys.argv[j+1]
                         except: observation_filename = ""

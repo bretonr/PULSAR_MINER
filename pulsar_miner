@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 #################### ALESSANDRO RIDOLFI ########################S
 
 
@@ -6,13 +6,14 @@ import sys, os, os.path, glob, subprocess, multiprocessing, shlex, shutil, copy
 import random, time, datetime, gc, imp
 import numpy as np
 
-import psrfits    #From PRESTO
-import filterbank #From PRESTO
-import rfifind    #From PRESTO
-import sifting    #From PRESTO
-import infodata   #From PRESTO
-import parfile    #From PRESTO
-import psr_utils  #From PRESTO
+import presto
+from presto import psrfits    #From PRESTO
+from presto import filterbank #From PRESTO
+from presto import rfifind    #From PRESTO
+from presto import sifting    #From PRESTO
+from presto import infodata   #From PRESTO
+from presto import parfile    #From PRESTO
+from presto import psr_utils  #From PRESTO
 
 import warnings
 from multiprocessing.pool import ThreadPool
@@ -44,7 +45,7 @@ class Pulsar(object):
                         self.F1 = 0
                 if hasattr(pulsar_parfile, 'F2'):
                         self.F2	= pulsar_parfile.F2
-		else:
+                else:
                         self.F2 = 0
 
                 self.is_binary = hasattr(pulsar_parfile, 'BINARY')
@@ -76,7 +77,7 @@ class Pulsar(object):
                         elif hasattr(pulsar_parfile, 'EPS1') and hasattr(pulsar_parfile, 'EPS2'):
                                 self.eps1      = pulsar_parfile.EPS1
                                 self.eps2      = pulsar_parfile.EPS2
-				self.ecc       = np.sqrt(self.eps1**2  + self.eps2**2)
+                                self.ecc       = np.sqrt(self.eps1**2  + self.eps2**2)
                         else:
                                 self.ecc       = 0 
                                 

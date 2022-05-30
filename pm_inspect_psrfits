@@ -3,7 +3,7 @@
 import sys, os, os.path, glob, shutil, subprocess, time
 import numpy as np
 
-import psrfits
+from presto import psrfits
 import pylab as plt
 
 

@@ -800,7 +800,7 @@ def split_into_chunks(list_datfiles_to_split, LOG_basename,  work_dir, segment_m
                 if flag_remove_datfiles_of_segments == 1 and (not os.path.exists(output_scriptfile)):
                         with open(output_scriptfile, 'w') as f:
                                 f.write("%s\n" % (cmd_prepdata_split))
-                        os.chmod(output_scriptfile, 0775)
+                        os.chmod(output_scriptfile, 0o775)
                 
                 if check_prepdata_outfiles(output_datfile.replace(".dat", "")) == False:
                         execute_and_log(cmd_prepdata_split, work_dir, log_abspath, dict_env, flag_LOG_append)

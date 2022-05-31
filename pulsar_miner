@@ -1660,7 +1660,11 @@ class SurveyConfiguration(object):
                 self.list_0DM_datfiles          = []
                 self.list_0DM_fftfiles          = []
                 self.list_0DM_fftfiles_rednoise = []
-                self.list_segments_nofull       = copy.deepcopy(self.list_segments); self.list_segments_nofull.remove("full")
+                self.list_segments_nofull       = copy.deepcopy(self.list_segments)
+                try:
+                        self.list_segments_nofull.remove("full")
+                except:
+                        print( "No full segment specified, so ignoring it." )
 
                 
                 self.dict_chunks                = {}      # {'filename': {'20m':   [0,1,2]}}

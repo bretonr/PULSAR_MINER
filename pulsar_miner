@@ -366,8 +366,8 @@ def sift_candidates(work_dir, LOG_basename,  dedispersion_dir, observation_basen
         list_ACCEL_files = []
         for z in list_zmax:
                 string_glob = "%s/*ACCEL_%d" % (string_ACCEL_files_dir, z)
-                if verbosity_level >= 1:    print( "Reading files '%s'..." % (string_glob),
-                                list_ACCEL_files = list_ACCEL_files + glob.glob(string_glob) )
+                if verbosity_level >= 1:    print( "Reading files '%s'..." % (string_glob) )
+                                list_ACCEL_files = list_ACCEL_files + glob.glob(string_glob)
                 if verbosity_level >= 1:    print( "done!" )
 
         string_glob_jerk_files = "%s/*ACCEL_%d_JERK_%d" % (string_ACCEL_files_dir, jerksearch_zmax, jerksearch_wmax)

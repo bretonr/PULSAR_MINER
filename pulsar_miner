@@ -3,7 +3,7 @@
 
 
 import sys, os, os.path, glob, subprocess, multiprocessing, shlex, shutil, copy
-import random, time, datetime, gc, imp
+import random, time, datetime, gc #, imp
 import numpy as np
 
 import presto

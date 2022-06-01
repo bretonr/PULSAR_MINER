@@ -1981,7 +1981,10 @@ config.list_Observations          = [Observation(x, config.data_type) for x in c
 # Add the common birdies file
 config.file_common_birdies = os.path.join(config.root_workdir, "common_birdies.txt")
 
-
+print('obsname', obsname)
+print('config.list_datafiles', config.list_datafiles)
+print('config.folder_datafiles', config.folder_datafiles)
+print('config.list_datafiles_abspath', config.list_datafiles_abspath)
 ################################################################################
 #   IMPORT PARFILES OF KNOWN PULSARS
 ################################################################################

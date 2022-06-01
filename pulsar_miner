@@ -1925,6 +1925,7 @@ elif (("-version" in sys.argv) or ("--version" in sys.argv)):
         print( "PULSAR_MINER version: %s" % (string_version) )
         exit()
 else:
+        print('sys.argv', sys.argv)
         for j in range(1, len(sys.argv)):
                 if (sys.argv[j] == "-config"):
                         config_filename = sys.argv[j+1]
@@ -1966,6 +1967,7 @@ if obsname=="":
 
 # Else, if input only a single observation...
 elif obsname!="":
+        print('obsname', obsname)
         config.list_datafiles             = [os.path.basename(x) for x in glob.glob(obsname)]
         if verbosity_level >= 3:  print( "config.list_datafiles = ", config.list_datafiles )
         config.folder_datafiles           = os.path.dirname(os.path.abspath(obsname))   # ...the location of the input file is the location of all the data

@@ -517,11 +517,13 @@ def make_even_number(number_int):
 def get_command_output(command, shell_state=False, work_dir=os.getcwd()):
         list_for_Popen = command.split()
         if shell_state==False:
-                proc = subprocess.Popen(list_for_Popen, stdout=subprocess.PIPE, shell=shell_state, cwd=work_dir)
+            proc = subprocess.Popen(list_for_Popen, stdout=subprocess.PIPE, shell=shell_state, cwd=work_dir)
         else:
-                proc = subprocess.Popen([command], stdout=subprocess.PIPE, shell=shell_state, cwd=work_dir)
+            proc = subprocess.Popen([command], stdout=subprocess.PIPE, shell=shell_state, cwd=work_dir)
         out, err = proc.communicate()
         
+        if isinstance(out, bytes):
+            out = out.decode(out, 'UTF-8')
         return out
 
 def get_command_output_with_pipe(command1, command2):
@@ -534,6 +536,8 @@ def get_command_output_with_pipe(command1, command2):
     p1.stdout.close() 
 
     out, err = p2.communicate()
+    if isinstance(out, bytes):
+        out = out.decode(out, 'UTF-8')
     return out
 
 
@@ -1300,7 +1304,7 @@ def make_rfifind_mask(infile, out_dir, LOG_basename, time=2.0, freqsig=6.0, time
 def get_DD_scheme_from_DDplan_output(output_DDplan):
         list_dict_schemes = []
 
-        output_DDplan_list_lines = output_DDplan.split("\n")
+        output_DDplan_list_lines = output_DDplan.split(b"\n")
         index = output_DDplan_list_lines.index("  Low DM    High DM     dDM  DownSamp   #DMs  WorkFract")   +1
 
         #print()
